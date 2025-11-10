@@ -26,7 +26,7 @@ toward clinically reliable multimodal AI systems
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/UF-EEE5776-Spring25/project-1-AnshulPatil2911.git
+git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
 ```
 
 ### Install the required packages
@@ -47,8 +47,4 @@ git clone https://github.com/UF-EEE5776-Spring25/project-1-AnshulPatil2911.git
    jupyter training
    ```
 
-3. Change the path to the csv file in the config.yaml file as per your requirements
 
-4. Provide the path of the directory in which you pipeline .pkl files stored as per your requirements.
-
-5. Provide the path of the directory in which all the model's .pkl file are stored as per your requirements
