@@ -1,4 +1,4 @@
-##Introduction
+# Introduction
 The objective of this project is to fine-tune a multimodal
 vision-language model, Qwen2-VL-2B, for the classification of oral histopathological images into Normal and Oral
 Squamous Cell Carcinoma (OSCC) categories. Unlike traditional convolutional neural networks (CNNs), Qwen2-VL2B integrates both visual and textual modalities, allowing for
