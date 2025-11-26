@@ -34,6 +34,15 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
    pip install -r requirements.txt
 ```
 
+### Data Visualization
+- Normal histopathological slide
+  ![Normal_100x_13](https://github.com/user-attachments/assets/94945ec6-0eea-4d32-a250-b2ddb8d33820)
+
+- OSCC
+  ![OSCC_100x_1](https://github.com/user-attachments/assets/8af64d97-49e1-4fda-96b9-338488ce2a43)
+
+
+
 ### Running the training notebook
 1. **Navigate to the Notebooks directory:**
 
