@@ -96,6 +96,9 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
 
   <img width="845" height="165" alt="image" src="https://github.com/user-attachments/assets/707674a0-58c2-4994-87ca-16fa39165ef5" />
 
+# User Interface
+This is how the UI looks like and I have also added a demonstration video in the 'Demonstration' folder
+<img width="1127" height="322" alt="UI" src="https://github.com/user-attachments/assets/ee633bf8-01fb-4b99-94dd-f44353ca2d45" />
 
 ### Running the training notebook
 1. **Navigate to the Notebooks directory:**
