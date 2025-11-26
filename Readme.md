@@ -37,7 +37,20 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
   
   ![OSCC_100x_1](https://github.com/user-attachments/assets/8af64d97-49e1-4fda-96b9-338488ce2a43)
 
+# Data processing steps and image captioning
+- Applied text preprocessing to clean and standardize all captions, including removal of artifacts, spacing issues, and inconsistent formatting.
 
+- Filtered out incomplete, incorrectly parsed, or low-quality caption entries detected during dataset inspection.
+
+- Split concatenated Question–Answer caption structures into separate fields to enable downstream modeling and evaluation.
+
+- Ensured alignment between images and captions by validating filename structures, paths, and directory formats.
+
+- Removed unnecessary metadata and noise to improve training stability and eliminate parsing errors in later stages.
+
+- Processed all filtered captions into a uniform structure for seamless integration with BERTScore evaluation and fine-tuning workflows.
+
+- Maintained dataset integrity by ensuring no missing values, corrupted entries, or mislabeled samples before model training.
 
 ### Running the training notebook
 1. **Navigate to the Notebooks directory:**
