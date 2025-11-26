@@ -38,7 +38,9 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
   ![OSCC_100x_1](https://github.com/user-attachments/assets/8af64d97-49e1-4fda-96b9-338488ce2a43)
 
 # Data processing steps and image captioning
-- Cleaned the raw captions by fixing spacing issues and removing unwanted text.
+- Used the BLIP model to generate initial image captions.
+
+- Cleaned the raw BLIP captions by fixing spacing issues and removing unwanted text.
 
 - Split each caption into separate question and answer fields using string parsing.
 
