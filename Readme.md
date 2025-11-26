@@ -50,7 +50,7 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
 
 - Saved the filtered dataset in a clean CSV format for model training and evaluation.
 
-## Model finetuning
+# Model finetuning
 - Loaded the Qwen2-VL-2B variant via Unsloth’s FastVisionModel API (the exact checkpoint used during experiments was the Unsloth Qwen2-VL instruct build). The model was run in quantized mode (4-bit) to fit GPU memory constraints.
 
 - Converted the dataset to the Unsloth chat format required for training: each example became a messages entry where the user content is "<image>\n<question>" and images were passed separately (no nested {'type':'image'} in the text). This ensured token ↔ image alignment for the custom processor.
@@ -86,6 +86,16 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
 - Used mixed strategies from Unsloth for memory and speed: 4-bit quantization for model weights, gradient checkpointing, and Unsloth’s runtime patches (xFormers when available) so training could run on a single T4 (or equivalent) GPU. Training logs showed ~28.9M trainable parameters (LoRA) out of ~2.24B total parameters.
 
 - Per-step training loss and simple validation checks were logged. After training, the LoRA weights / PEFT adapter checkpoint was saved and the model was switched to inference mode with FastVisionModel.for_inference(...) for downstream evaluation and serving.
+
+# Results & Discussion
+- The performance of the model was evaluated before and after fine-tuning using BERTScore and validation accuracy. The improvement was clear across all metrics. Before fine-tuning, the model produced reasonable explanations, but the precision, recall, and F1 scores indicated inconsistency in how well the generated answers aligned with the ground-truth captions. After fine-tuning on the BLIP-generated QA dataset, all three BERTScore metrics increased sharply, reaching approximately 0.96, demonstrating that the model learned to produce more accurate and context-aligned explanations.
+
+- Validation accuracy reached 100% in both cases. This result reflects that the classification portion of the task was straightforward for the model even in its pre-trained state, while the fine-tuning primarily improved the quality and specificity of textual explanations, not the label prediction itself. The model also showed reduced variability in its outputs after fine-tuning and generated more consistent reasoning aligned with the domain-specific patterns in oral histopathology images.
+
+- Overall, the results confirm that fine-tuning was effective in strengthening the explanation-generation ability of the model without degrading classification performance.
+
+  <img width="845" height="165" alt="image" src="https://github.com/user-attachments/assets/707674a0-58c2-4994-87ca-16fa39165ef5" />
+
 
 ### Running the training notebook
 1. **Navigate to the Notebooks directory:**
