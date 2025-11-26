@@ -10,12 +10,6 @@ cues. This work aims to improve diagnostic accuracy and
 interpretability in digital pathology applications, contributing
 toward clinically reliable multimodal AI systems
 
-# Getting Started
-
-## Prerequisites
-- Python 3.7+
-- pip (Python Package Installer)
-
 
 # Getting Started
 
@@ -34,7 +28,7 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
    pip install -r requirements.txt
 ```
 
-### Data Visualization
+# Data Visualization
 - Normal histopathological slide
   
   ![Normal_100x_13](https://github.com/user-attachments/assets/94945ec6-0eea-4d32-a250-b2ddb8d33820)
