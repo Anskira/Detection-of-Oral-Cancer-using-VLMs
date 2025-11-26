@@ -60,27 +60,27 @@ git clone https://github.com/Anskira/Detection-of-Oral-Cancer-using-VLMs.git
 - Enabled LoRA-based PEFT with the same LoRA configuration used in experiments: r=16, lora_alpha=16, lora_dropout=0, bias="none", and use_rslora=False. Only LoRA layers (attention/MLP projection targets) were updated; the base model parameters remained frozen. Random seed and reproducibility parameters were set (seed 3407).
 
 - Switched the model into training mode using FastVisionModel.for_training(...) and used Unsloth’s UnslothVisionDataCollator + trl.SFTTrainer for the optimization loop. Key training args that were used in runs:
-```bash
-per_device_train_batch_size = 2
-
-gradient_accumulation_steps = 4 (effective batch size ≈ 8)
-
-warmup_steps = 5
-
-max_steps = 30 (short runs for quick iteration; longer runs possible)
-
-learning_rate = 2e-4
-
-optim = "adamw_8bit" (8-bit optimizer to reduce memory)
-
-weight_decay = 0.001
-
-lr_scheduler_type = "linear"
-
-max_length = 2048 (text tokens)
-
-seed = 3407
-```
+   ```bash
+   per_device_train_batch_size = 2
+   
+   gradient_accumulation_steps = 4 (effective batch size ≈ 8)
+   
+   warmup_steps = 5
+   
+   max_steps = 30 (short runs for quick iteration; longer runs possible)
+   
+   learning_rate = 2e-4
+   
+   optim = "adamw_8bit" (8-bit optimizer to reduce memory)
+   
+   weight_decay = 0.001
+   
+   lr_scheduler_type = "linear"
+   
+   max_length = 2048 (text tokens)
+   
+   seed = 3407
+   ```
 - output_dir set to a writable project path (avoid absolute root like /model)
 
 - Used mixed strategies from Unsloth for memory and speed: 4-bit quantization for model weights, gradient checkpointing, and Unsloth’s runtime patches (xFormers when available) so training could run on a single T4 (or equivalent) GPU. Training logs showed ~28.9M trainable parameters (LoRA) out of ~2.24B total parameters.
